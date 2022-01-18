@@ -1,0 +1,72 @@
+---
+title: Gatsby Tutorial
+slug: gatsby-tutorial
+image: ./images/gatsby-1.png
+date: 2022-01-17
+author: john smith
+category: gatsby
+readTime: 34
+---
+
+import { Link } from 'gatsby'
+import { FiInfo } from 'react-icons/fi'
+import { Counter, LikeButton } from '../../components/Complete'
+
+## my first mdx file
+
+**hello**
+
+<div className="code">
+
+```js
+const firstname = 'john'
+const lastName = 'smith'
+```
+
+</div>
+
+<Link to="/posts" className="btn center-btn">
+  all posts
+</Link>
+
+<div className="nice-text">
+
+<h3>nice text</h3>
+
+<FiInfo className="nice-text-icon" />
+
+I'm baby before they sold out 8-bit whatever kale chips offal. Blog la croix cardigan, hot chicken DIY asymmetrical man bun whatever lomo. Vice authentic portland disrupt semiotics. Banjo live-edge hella YOLO quinoa. Deep v typewriter tacos subway tile quinoa ramps sriracha meggings meditation pickled jean shorts. Blue bottle small batch af deep v fingerstache.
+
+</div>
+
+<h2>React components</h2>
+
+<Counter />
+
+```jsx
+import React from 'react'
+import styled from 'styled-components'
+import { AiOutlineLike } from 'react-icons/ai'
+const LikeButton = () => {
+  const [value, setValue] = React.useState(0)
+  return (
+    <Wrapper>
+      <div>
+        <button onClick={() => setValue(value + 1)}>
+          <AiOutlineLike />
+        </button>
+        <p>
+          Liked the post?
+          <br />
+          Click thumbs up few times
+        </p>
+      </div>
+      <span>+{value}</span>
+    </Wrapper>
+  )
+}
+```
+
+<LikeButton />
+
+![nice image](./images/gatsby-1.png)

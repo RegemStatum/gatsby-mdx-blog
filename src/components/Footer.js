@@ -2,7 +2,12 @@ import React from 'react'
 import SocialLinks from '../constants/socialLinks'
 const Footer = () => {
   return (
-    <h4>footer component</h4>
+    <footer className="footer">
+      <div>
+        <SocialLinks styleClass="footer-icons" />
+        <p>&copy; {new Date().getFullYear()} MDXBlog. All rights reserved</p>
+      </div>
+    </footer>
   )
 }
 

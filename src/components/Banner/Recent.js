@@ -5,13 +5,47 @@ import { Link } from 'gatsby'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import Title from './Title'
 
-
+const query = graphql`
+  {
+    allMdx(limit: 5, sort: { fields: frontmatter___date, order: DESC }) {
+      nodes {
+        frontmatter {
+          title
+          slug
+          date(formatString: "MMMM Do, YYYY")
+          image {
+            childImageSharp {
+              gatsbyImageData
+            }
+          }
+        }
+        id
+      }
+    }
+  }
+`
 
 const Recent = () => {
-  
+  const data = useStaticQuery(query)
+  const {
+    allMdx: { nodes: posts },
+  } = data
+
   return (
     <Wrapper>
-      Banner Recent
+      <Title title="recent"></Title>
+      {posts.map(post => {
+        const { title, slug, date, image } = post.frontmatter
+        return (
+          <Link to={`/posts/${slug}`} key={post.id} className="post">
+            <GatsbyImage image={getImage(image)} alt={title} className="img" />
+            <div>
+              <h5>{title}</h5>
+              <p>{date}</p>
+            </div>
+          </Link>
+        )
+      })}
     </Wrapper>
   )
 }

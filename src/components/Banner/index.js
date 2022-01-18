@@ -5,7 +5,11 @@ import Recent from './Recent'
 import BannerCategories from './BannerCategories'
 const Banner = () => {
   return (
-    <Wrapper>Banner</Wrapper>
+    <Wrapper>
+      <About />
+      <Recent />
+      <BannerCategories />
+    </Wrapper>
   )
 }
 
