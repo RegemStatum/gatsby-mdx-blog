@@ -2,12 +2,6 @@ import React from 'react'
 import Highlight, { defaultProps } from 'prism-react-renderer'
 import theme from 'prism-react-renderer/themes/vsDark'
 
-const exampleCode = `
-(function someDemo() {
-  var test = "Hello World!";
-  console.log(test);
-})();`
-
 const Example = props => {
   const className = props.children.props.className
   const language = className.replace(/language-/, '')
